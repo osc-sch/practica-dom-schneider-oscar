@@ -48,7 +48,7 @@ const listar_heroes = (listaHeroes) =>{
         const {id , nombre , imagen} = heroe;
 
         contenedor_heroe.innerHTML += `
-            <div class="col" data-id=${id}>
+            <div class="col d-flex align-items-center justify-content-center" data-id=${id}>
                 <div class="card my-2" style="width: 10rem;">
                     <img src=${imagen}
                         class="card-img-top" alt=${nombre}>

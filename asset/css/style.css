@@ -1,0 +1,31 @@
+footer{
+    background-color: black;
+    padding: 20px;
+    text-align: center;
+}
+
+body{
+    height: 100vh;
+    background-image: url('https://wallpapers.com/images/high/marvel-versus-dc-universe-online-fanart-woibsdllnigfv7nq.webp');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+main{
+    min-height: 600px;
+}
+
+#contenedorHeroe{
+    width: 100%;
+    margin: 20px;
+    background-color: rgb(255 255 255 / 0.15); 
+    backdrop-filter: blur(10px);
+    border: 1px solid rgb(255 255 255 / 0.2);
+    border-radius: 12px;
+    padding: 20px;
+    color: white;
+}
+
+.card{
+    border: dashed 2px rgb(100, 100, 100);
+}

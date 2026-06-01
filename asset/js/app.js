@@ -107,8 +107,6 @@ const eliminar_heroe = (id) =>{
 }
 
 
-
-
 //Escuchar Eventos
 heroe_buscar.addEventListener('input',() => {
 
@@ -144,9 +142,9 @@ contenedor_heroe.addEventListener('click', (event) => {
 
         const eliminar = event.target.closest('.col')
 
-        let cosito = personajes.findIndex(heroe => heroe.id == eliminar.dataset.id)
+        let idHeroe = personajes.findIndex(heroe => heroe.id == eliminar.dataset.id)
 
-        eliminar_heroe(cosito)
+        eliminar_heroe(idHeroe)
     }
 
 });

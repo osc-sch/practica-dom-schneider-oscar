@@ -31,6 +31,12 @@ const personajes = [
 const contenedor_heroe  = document.querySelector('#contenedorHeroe');
 const heroe_buscar = document.querySelector('#buscar');
 
+const btn_modal = document.getElementById('btn-Modal');
+const Modal = document.getElementById('Modal');
+const btnAdd = document.querySelector('#buttom-add')
+
+const formAdd = document.querySelector('#agregar');
+
 
 //funcion para recorrer y mostrar los personajes
 const listar_heroes = (listaHeroes) =>{
@@ -60,6 +66,8 @@ const listar_heroes = (listaHeroes) =>{
 //se ejecuta al cargar la pagina
 listar_heroes(personajes);
 
+const btnEliminar = document.querySelector('#eliminar');
+
 
 //funciones
 const buscar_heroe = () =>{
@@ -69,6 +77,36 @@ const buscar_heroe = () =>{
     listar_heroes(heroe_econtrado);
 
 }
+
+const agregar_heroe = () => {
+
+    let nueva_id = personajes.length+1;
+    let nombre_heroe = document.querySelector('#name-heroe');
+    let image_heroe = document.querySelector('#image-heroe');
+
+    const nuevo_heroe = {
+        id : nueva_id,
+        nombre : nombre_heroe.value,
+        imagen : image_heroe.value,
+    }
+
+    personajes.push(nuevo_heroe)
+
+
+    listar_heroes(personajes);
+    nombre_heroe.value = "";
+    image_heroe.value = "";
+    
+};
+
+const eliminar_heroe = (id) =>{
+
+    personajes.splice(id,1)
+
+    listar_heroes(personajes)
+}
+
+
 
 
 //Escuchar Eventos
@@ -85,4 +123,30 @@ heroe_buscar.addEventListener('input',() => {
         listar_heroes(heroe_econtrado);
 
     }
+});
+
+btn_modal.addEventListener('shown.bs.modal', () => {
+  Modal.focus();
+});
+
+btnAdd.addEventListener('click', () => {
+  Modal.focus();
+});
+
+formAdd.addEventListener('click',() =>{
+    agregar_heroe();
+});
+
+contenedor_heroe.addEventListener('click', (event) => {
+
+    if(event.target.classList.contains('btn-eliminar')){
+        event.preventDefault();
+
+        const eliminar = event.target.closest('.col')
+
+        let cosito = personajes.findIndex(heroe => heroe.id == eliminar.dataset.id)
+
+        eliminar_heroe(cosito)
+    }
+
 });

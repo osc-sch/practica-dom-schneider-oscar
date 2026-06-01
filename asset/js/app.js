@@ -25,3 +25,29 @@ const personajes = [
         imagen: "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/5-abraxas.jpg" 
     },
 ];
+
+const contenedor_heroe  = document.querySelector('#contenedorHeroe');
+
+const listar_heroes = (listaHeroes) =>{
+
+    contenedor_heroe.innerHTML = ``;
+
+    listaHeroes.forEach((heroe)=>{
+
+        contenedor_heroe.innerHTML += `
+            <div class="col" data-id=${heroe.id}>
+                <div class="card my-2" style="width: 10rem;">
+                    <img src=${heroe.imagen}
+                        class="card-img-top" alt=${heroe.nombre}>
+                    <div class="card-body">
+                        <h5 class="card-title">${heroe.nombre}</h5>
+                        <a href="#" class="btn btn-danger btn-eliminar" id="eliminar"><i class="bi bi-trash"></i> Eliminar</a>
+                    </div>
+                </div>
+            </div>
+        
+        `;
+    });
+};
+
+listar_heroes(personajes);

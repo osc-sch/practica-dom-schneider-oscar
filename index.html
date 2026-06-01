@@ -21,6 +21,9 @@
                         class="navbar-toggler-icon"></span> </button>
                 <div class="collapse navbar-collapse" id="navbarsExample06">
                     <ul class="navbar-nav me-auto mb-2 mb-xl-0">
+                        <li class="nav-item"><button type="button" class="btn btn-success" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal" data-bs-whatever="@mdo" id="myModal">Añadir
+                                Superhéroes</button></li>
                     </ul>
                     <form role="search" method="post" class="d-flex gap-2">
                         <input class="form-control" type="search" placeholder="Buscar Heroe" aria-label="Search"
@@ -39,6 +42,41 @@
                 </div>
             </div>
         </section>
+        <!-- seccion para el formulario de carga -->
+        <section>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo Superhéroes</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form method="post" id="addHeroe">
+                                <div class="mb-3">
+                                    <label for="recipient-name" class="col-form-label">Nombre:</label>
+                                    <input type="text" class="form-control" id="name-heroe">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message-text" class="col-form-label">Imagen(URL):</label>
+                                    <input type="text" class="form-control" id="image-heroe">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary" id="agregar" data-bs-dismiss="modal">Añadir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <button type="button" class="btn btn-success position-fixed bottom-0 end-0 m-4 rounded-circle shadow"
+            data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"
+            style="width: 60px; height: 60px; z-index: 1050;" id="buttom-add"><i
+                class="bi bi-person-plus-fill"></i></button>
     </main>
     <footer>
 

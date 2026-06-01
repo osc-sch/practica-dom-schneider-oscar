@@ -26,21 +26,28 @@ const personajes = [
     },
 ];
 
-const contenedor_heroe  = document.querySelector('#contenedorHeroe');
 
+//objetos del DOOM
+const contenedor_heroe  = document.querySelector('#contenedorHeroe');
+const heroe_buscar = document.querySelector('#buscar');
+
+
+//funcion para recorrer y mostrar los personajes
 const listar_heroes = (listaHeroes) =>{
 
     contenedor_heroe.innerHTML = ``;
 
     listaHeroes.forEach((heroe)=>{
 
+        const {id , nombre , imagen} = heroe;
+
         contenedor_heroe.innerHTML += `
-            <div class="col" data-id=${heroe.id}>
+            <div class="col" data-id=${id}>
                 <div class="card my-2" style="width: 10rem;">
-                    <img src=${heroe.imagen}
-                        class="card-img-top" alt=${heroe.nombre}>
+                    <img src=${imagen}
+                        class="card-img-top" alt=${nombre}>
                     <div class="card-body">
-                        <h5 class="card-title">${heroe.nombre}</h5>
+                        <h5 class="card-title">${nombre}</h5>
                         <a href="#" class="btn btn-danger btn-eliminar" id="eliminar"><i class="bi bi-trash"></i> Eliminar</a>
                     </div>
                 </div>
@@ -50,4 +57,32 @@ const listar_heroes = (listaHeroes) =>{
     });
 };
 
+//se ejecuta al cargar la pagina
 listar_heroes(personajes);
+
+
+//funciones
+const buscar_heroe = () =>{
+
+    const heroe_econtrado = personajes.filter(heroe => heroe.nombre === heroe_buscar.value);
+
+    listar_heroes(heroe_econtrado);
+
+}
+
+
+//Escuchar Eventos
+heroe_buscar.addEventListener('input',() => {
+
+    if(heroe_buscar.value == ""){
+
+        listar_heroes(personajes);
+
+    }else{
+
+        const heroe_econtrado = personajes.filter(heroe => heroe.nombre === heroe_buscar.value);
+
+        listar_heroes(heroe_econtrado);
+
+    }
+});

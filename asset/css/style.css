@@ -18,14 +18,26 @@ main{
 #contenedorHeroe{
     width: 100%;
     margin: 20px;
-    background-color: rgb(255 255 255 / 0.15); 
+    background-color: rgba(255 ,255 ,255 , 0.15); 
     backdrop-filter: blur(10px);
-    border: 1px solid rgb(255 255 255 / 0.2);
+    border: 1px solid rgba(255 ,255 ,255 , 0.2);
     border-radius: 12px;
     padding: 20px;
     color: white;
 }
 
 .card{
-    border: dashed 2px rgb(100, 100, 100);
+    border: dashed 1px transparent;
+    transition: transform 0.3s ease;
+    transition: all 0.5s;
+    
+    
+}
+
+.card:hover{
+    box-shadow: 0 10px 10px rgba( 0,0,0,0.7);
+    transition: all 0.5s;
+    transform: translateY(-10px);
+    border-radius: 6px;
+    
 }
